@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 ### BEGIN INIT INFO
 # Provides:          skeleton
 # Required-Start:    $remote_fs $syslog
@@ -20,21 +21,22 @@ astrapath = '/bin/astra'
 #Astra configs
 configspath = '/etc/astra/'
 pidfilepath = '/run/astra.pid'
-
-#
 astraconfigs = os.listdir(configspath)
 
 def call_help():
+
     var = """
-Мини help()
-Запустить все потоки - аргумент [start]
-Остановить все потоки - аргумент [stop]
-        
-Запустить дополнительный поток - аргумент [start] [Название КОНФИГУРАЦИОННОГО ФАЙЛА(НЕ ПУТЬ)]
-Остановить один поток - аргумент [stop] [Название КОНФИГУРАЦИОННОГО ФАЙЛА(НЕ ПУТЬ)]
+    Mini help()
+    Start all astra processes - [start]
+    Stop all astra processes - [stop]
+    Restart all astra processes - [restart]
     
-Название конфигов:\n
-"""
+    Start additional astra process - [start] [config name in 'configspath']
+    Stop any astra process - [stop] [config name in 'configspath']
+    
+    Configs name:\n
+    """
+
     for conf in astraconfigs:
         var = var + '[' + conf + ']\n'
     print(var)
@@ -159,7 +161,6 @@ elif len(sys.argv) == 3:
     if sys.argv[1] == 'start':
         start(sys.argv[2])
     elif sys.argv[1] == 'stop':
-        print(sys.argv[2])
         stop(sys.argv[2])
     elif sys.argv[1] == 'restart':
         stop(sys.argv[2])
