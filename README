@@ -1,0 +1,8 @@
+Installing
+
+Install python3
+Copy astra.py script to any folder, and past path to /etc/rc.local
+chmod +x [ASTRAPATH]
+Then configure paths in script.
+
+Modificating soon! Add a monitoring pid process.
